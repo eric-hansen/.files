@@ -1,0 +1,68 @@
+#+STARTUP: showall
+
+* General/Interface Tweaks
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Load the theme
+(load-theme 'graham t)
+
+;; Easy window mode
+#+END_SRC
+
+* Helm / Projectile
+** Helm
+#+BEGIN_SRC emacs-lisp
+(use-package helm
+  :ensure t
+  :init
+  (require 'helm-config)
+  :config
+  (require 'custom-helm))
+#+END_SRC
+
+** Projectile
+#+BEGIN_SRC emacs-lisp
+(use-package helm-projectile
+  :ensure t
+  :init
+  (helm-projectile-on)
+  :config
+)
+#+END_SRC
+
+* Magit
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :ensure t
+  :init
+  :config
+)
+#+END_SRC
+
+* Evil
+#+BEGIN_SRC emacs-lisp
+(use-package evil-leader
+  :ensure t
+  :config
+  (progn
+    (evil-leader/set-leader ";")
+    (setq evil-leader/in-all-states t)
+    )
+  :init
+  (require 'custom-evil-leader)
+  (global-evil-leader-mode))
+
+(use-package evil
+  :ensure t
+  :init
+    (evil-mode t)
+  :config
+  (progn
+    (setq
+      evil-cross-lines t
+    )))
+#+END_SRC
