@@ -1,4 +1,4 @@
-#+STARTUP: showall
+#+STARTUP: overview
 
 * General/Interface Tweaks
 #+BEGIN_SRC emacs-lisp
